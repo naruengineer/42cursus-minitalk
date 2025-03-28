@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_put_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2024/12/24 17:00:51 by nando             #+#    #+#             */
+/*   Updated: 2025/03/11 13:50:07 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "../includes/ft_printf.h"
 
-typedef struct s_state 
+int ft_put_str(char *str)
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	int i;
 
-#endif
+	i = 0;
+	if(!str)
+		return -1;
+	while(str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return i;
+}

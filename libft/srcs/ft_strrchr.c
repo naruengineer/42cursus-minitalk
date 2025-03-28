@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2025/03/11 15:14:52 by nando             #+#    #+#             */
+/*   Updated: 2025/03/11 15:15:31 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "libft.h"
 
-typedef struct s_state 
+size_t  ft_strlen (const char *s) 
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	size_t len;
+	len = 0;
+	
+	while (s[len] != '\0')
+		len++;
+	return len;
+}
 
-#endif
+char *ft_strrchr (const char *s, int c)
+{
+	size_t len = ft_strlen(s);
+	while(len != 0){
+		if(s[len] == c)
+			return (char *)&s[len];
+	len--;
+	}
+	if(c == '\0')
+		return (char *)&s[len];
+	return NULL;
+}

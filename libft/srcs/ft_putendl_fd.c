@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2025/03/11 13:27:30 by nando             #+#    #+#             */
+/*   Updated: 2025/03/11 13:27:38 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "libft.h"
 
-typedef struct s_state 
+void	ft_putendl_fd(char *s, int fd)
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	int	i;
 
-#endif
+	i = 0;
+	if (s == NULL)
+		return ;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
+}

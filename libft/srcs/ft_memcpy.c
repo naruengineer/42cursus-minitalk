@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2024/12/03 10:25:43 by nando             #+#    #+#             */
+/*   Updated: 2024/12/09 20:54:57 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "libft.h"
 
-typedef struct s_state 
+void *ft_memcpy(void *dest, const void *src, size_t count)
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	size_t i;
+	unsigned char *cast_dest;
+	unsigned char *cast_src;
 
-#endif
+	i = 0;
+	cast_dest = (unsigned char *)dest;
+	cast_src = (unsigned char *)src;
+	if(count == 0)
+		return NULL;
+	while (i < count)
+	{
+		cast_dest[i] = cast_src[i];
+		i++;
+	}
+	return (void *)cast_dest;
+}

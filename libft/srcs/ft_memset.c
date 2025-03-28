@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2024/12/03 22:46:58 by nando             #+#    #+#             */
+/*   Updated: 2025/03/11 15:05:18 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "libft.h"
 
-typedef struct s_state 
+void *ft_memset(void *s, int c, size_t n)
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	size_t i;
+	unsigned char *cast_s;
 
-#endif
+	i = 0;
+	cast_s = (unsigned char *)s;
+	while(i < n)
+	{
+		cast_s[i] = (unsigned char)c;
+		i++;
+	}
+	return (void *)cast_s;
+}

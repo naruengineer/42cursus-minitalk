@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2024/12/03 10:25:34 by nando             #+#    #+#             */
+/*   Updated: 2024/12/09 20:54:22 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "libft.h"
 
-typedef struct s_state 
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	size_t i;
+	unsigned char *cast_s;
 
-#endif
+	i = 0;
+	cast_s = (unsigned char *)s;
+	while (i < n)
+	{
+		if(cast_s[i] == (unsigned char )c)
+			return (void *)&cast_s[i];
+		i++;
+	}
+	return NULL;
+}

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2024/12/03 10:19:51 by nando             #+#    #+#             */
+/*   Updated: 2024/12/09 20:54:38 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "libft.h"
 
-typedef struct s_state 
+int	ft_memcmp(const void *buf1, const void *buf2, size_t count)
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	size_t i;
+	unsigned char *cast_buf1;
+	unsigned char *cast_buf2;
 
-#endif
+	i = 0;
+	cast_buf1 = (unsigned char *)buf1;
+	cast_buf2 = (unsigned char *)buf2;
+	while(i < count)
+	{
+		if(cast_buf1[i] != cast_buf2[i])
+			return (int)(cast_buf1[i] - cast_buf2[i]);
+		i++;
+	}
+	return 0;
+}

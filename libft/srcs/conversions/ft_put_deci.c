@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   ft_put_deci.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 17:37:58 by nando            ###   ########.fr       */
+/*   Created: 2024/12/27 15:42:05 by nando             #+#    #+#             */
+/*   Updated: 2025/03/11 13:49:43 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#include "../includes/ft_printf.h"
 
-typedef struct s_state 
+int	ft_put_deci(int i)
 {
-	volatile sig_atomic_t bit_count;
-	volatile sig_atomic_t char_accum;
-	volatile sig_atomic_t client_pid;
-} t_state;
+	char put_deci;
+	int count;
 
-#endif
+	count = 0;
+	if(i == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return 11;
+	}
+	if(i < 0)
+	{
+		write(1, "-", 1);
+		i = -i;
+		count++;
+	}
+	if(i >= 10)
+		count += ft_put_deci(i / 10);
+	put_deci = (i % 10) + '0';
+	write(1, &put_deci, 1);
+	count++;
+	return count;
+}
