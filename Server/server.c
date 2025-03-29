@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:56:47 by nando             #+#    #+#             */
-/*   Updated: 2025/03/28 18:25:55 by nando            ###   ########.fr       */
+/*   Updated: 2025/03/29 19:13:47 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,25 @@
 #include "server.h"
 
 t_state g_state = {0, 0, 0, 0};
+
+void write_one_character(void)
+{
+	if(g_state.char_accum == '\0')
+	{
+		write(1, "\n", 1);
+		g_state.flag = 0;
+		if(g_state.client_pid != 0)
+			kill(g_state.client_pid, SIGUSR1);
+	}
+	else
+	{
+		write(1, (void *)&g_state.char_accum, 1);
+		kill(g_state.client_pid, SIGUSR2);
+	}
+	g_state.bit_count = 0;
+	g_state.char_accum = 0;
+	g_state.client_pid = 0;
+}
 
 void signal_handler(int sig, siginfo_t *info, void *context)
 {
@@ -35,20 +54,7 @@ void signal_handler(int sig, siginfo_t *info, void *context)
 		g_state.char_accum = g_state.char_accum << 1;
 	g_state.bit_count++;
 	if(g_state.bit_count == 8)
-	{
-		if(g_state.char_accum == '\0')
-		{
-			write(1, "\n", 1);
-			g_state.flag = 0;
-			if(g_state.client_pid != 0)
-				kill(g_state.client_pid, SIGUSR1);
-		}
-		else
-			write(1, (void *)&g_state.char_accum, 1);
-		g_state.bit_count = 0;
-		g_state.char_accum = 0;
-		g_state.client_pid = 0;
-	}
+		write_one_character();
 }
 
 int	main(void)

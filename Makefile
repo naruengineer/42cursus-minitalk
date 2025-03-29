@@ -6,7 +6,7 @@
 #    By: nando <nando@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 17:49:45 by nando             #+#    #+#              #
-#    Updated: 2025/03/28 18:02:35 by nando            ###   ########.fr        #
+#    Updated: 2025/03/29 19:24:54 by nando            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT   = libft/libft.a
 
-SRCS_SERVER = server.c
-SRCS_CLIENT = client.c
+SRCS_SERVER = ./Server/server.c
+SRCS_CLIENT = ./Client/client.c
 
 OBJS_SERVER	= $(SRCS_SERVER:.c=.o)
 OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
