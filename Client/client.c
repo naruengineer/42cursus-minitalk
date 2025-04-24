@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:06:10 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 17:33:33 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/24 18:06:26 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	ack_char_handler(int sig)
 {
 	(void)sig;
 	g_ack_received = 1;
-	ft_printf("Acknowledgment received char from server.\n");
 }
 
 static void	ack_message_handler(int sig)
