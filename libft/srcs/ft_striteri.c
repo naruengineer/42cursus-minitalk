@@ -6,13 +6,13 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:26:15 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 14:57:47 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:32:28 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//static void	alternate_case_in_place(unsigned int index, char *c)
+// static void	alternate_case_in_place(unsigned int index, char *c)
 //{
 //	if (c != NULL)
 //	{

@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:21:24 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 14:51:36 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:32:41 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str_cpy;
 
 	i = 0;
-	if(!s)
+	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (s_len <= start)

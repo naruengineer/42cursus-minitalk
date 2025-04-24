@@ -6,14 +6,15 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:53:41 by nando             #+#    #+#             */
-/*   Updated: 2024/12/09 20:53:42 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:31:36 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isascii(int c){
-	if(0 <= c && c <= 127)
-		return 1;
-	return 0;
+int	ft_isascii(int c)
+{
+	if (0 <= c && c <= 127)
+		return (1);
+	return (0);
 }

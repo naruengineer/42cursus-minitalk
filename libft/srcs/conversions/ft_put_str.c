@@ -6,23 +6,23 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:00:51 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 13:50:07 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:37:40 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int ft_put_str(char *str)
+int	ft_put_str(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(!str)
-		return -1;
-	while(str[i] != '\0')
+	if (!str)
+		return (-1);
+	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
 		i++;
 	}
-	return i;
+	return (i);
 }

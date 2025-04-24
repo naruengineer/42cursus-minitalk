@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:56:27 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 13:49:52 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:37:29 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 int	ft_put_int(int i)
 {
-	char put_int;
-	int count;
+	char	put_int;
+	int		count;
 
 	count = 0;
-	if(i == -2147483648)
+	if (i == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		return 11;
+		return (11);
 	}
-	if(i < 0)
+	if (i < 0)
 	{
 		write(1, "-", 1);
 		i = -i;
 		count++;
 	}
-	if(i >= 10)
+	if (i >= 10)
 		count += ft_put_int(i / 10);
 	put_int = (i % 10) + '0';
 	write(1, &put_int, 1);
 	count++;
-	return count;
+	return (count);
 }
-
-

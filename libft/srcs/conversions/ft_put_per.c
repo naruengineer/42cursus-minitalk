@@ -6,17 +6,18 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:58:12 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 13:49:56 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:33:04 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int ft_put_per(void)
+int	ft_put_per(void)
 {
-	char per = '%';
+	char	per;
 
 	per = '%';
+	per = '%';
 	write(1, &per, 1);
-	return 1;
+	return (1);
 }

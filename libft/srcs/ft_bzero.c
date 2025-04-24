@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:52:54 by nando             #+#    #+#             */
-/*   Updated: 2024/12/09 20:52:59 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:34:14 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
+	size_t	i;
+	char	*cast_s;
 
-	char *cast_s = (char *)s;
+	cast_s = (char *)s;
 	i = 0;
 	while (i < n)
 	{

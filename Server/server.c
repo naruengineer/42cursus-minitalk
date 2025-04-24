@@ -6,15 +6,13 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:56:47 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 14:06:43 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/24 17:33:03 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define _POSIX_C_SOURCE 200809L
 #include "server.h"
 
-/*g_state is the sole global variable used to maintain the bit-reception
-  each time the signal handler is invoked */
 t_state	g_state = {0, 0, 0, 0};
 
 static void	write_one_character(void)

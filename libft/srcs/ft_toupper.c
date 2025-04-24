@@ -6,16 +6,16 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:13:14 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 15:13:23 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:32:45 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int     ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if('a' <= c && c <= 'z')
+	if ('a' <= c && c <= 'z')
 		c = c - 32;
-	return c;
+	return (c);
 }

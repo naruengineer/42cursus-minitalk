@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:26:53 by nando             #+#    #+#             */
-/*   Updated: 2025/03/11 13:50:10 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:37:49 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	ft_put_unsigned(unsigned int i)
 {
-	char put_unsigned;
-	int count;
+	char	put_unsigned;
+	int		count;
 
 	count = 0;
-	if(i >= 10)
+	if (i >= 10)
 		count += ft_put_unsigned(i / 10);
 	put_unsigned = (i % 10) + '0';
 	write(1, &put_unsigned, 1);
-	return count + 1;
+	return (count + 1);
 }

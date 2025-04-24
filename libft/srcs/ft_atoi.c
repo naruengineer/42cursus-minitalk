@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:37:57 by nando             #+#    #+#             */
-/*   Updated: 2025/02/24 16:17:57 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/08 17:34:05 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int ft_isspace(char c)
+int	ft_isspace(char c)
 {
-    if(c == ' ' || c == '\n' || c == '\t' ||
-	    c == '\v' || c == '\f' || c == '\r')
-        return 1;
-    return 0;
+	if (c == ' ' || c == '\n' || c == '\t' || c == '\v' || c == '\f'
+		|| c == '\r')
+		return (1);
+	return (0);
 }
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-	int i;
-	int sign;
-	int result;
+	int	i;
+	int	sign;
+	int	result;
 
 	i = 0;
 	sign = 1;
@@ -35,7 +35,7 @@ int ft_atoi(const char *nptr)
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if(nptr[i++] == '-')
+		if (nptr[i++] == '-')
 			sign = -1;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
@@ -44,4 +44,4 @@ int ft_atoi(const char *nptr)
 		i++;
 	}
 	return (result * sign);
-};
+}
