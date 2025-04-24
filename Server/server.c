@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:56:47 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 17:33:03 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/24 19:51:22 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_state	g_state = {0, 0, 0, 0};
 
-static void	write_one_character(void)
+static void	write_one_char_and_send_signal(void)
 {
 	if (g_state.char_accum == '\0')
 	{
@@ -46,7 +46,7 @@ static void	signal_handler(int sig, siginfo_t *info, void *context)
 		g_state.char_accum = g_state.char_accum << 1;
 	g_state.bit_count++;
 	if (g_state.bit_count == 8)
-		write_one_character();
+		write_one_char_and_send_signal();
 }
 
 int	main(void)
@@ -57,7 +57,7 @@ int	main(void)
 	pid = getpid();
 	ft_printf("Server PID : %d\n", pid);
 	sig_act.sa_sigaction = signal_handler;
-	sig_act.sa_flags = SA_SIGINFO | SA_RESTART;
+	sig_act.sa_flags = SA_SIGINFO;
 	sigemptyset(&sig_act.sa_mask);
 	sigaction(SIGUSR1, &sig_act, NULL);
 	sigaction(SIGUSR2, &sig_act, NULL);

@@ -6,13 +6,13 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 17:06:10 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 18:06:26 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/24 20:32:17 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
 
-volatile sig_atomic_t	g_ack_received;
+volatile sig_atomic_t	g_ack_received = 0;
 
 static void	ack_char_handler(int sig)
 {
