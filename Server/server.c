@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:56:47 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 19:51:22 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/24 21:14:46 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ static void	signal_handler(int sig, siginfo_t *info, void *context)
 	(void)context;
 	g_state.client_pid = info->si_pid;
 	if (g_state.flag == 0)
+	{
+		ft_printf("client PID : %d", g_state.client_pid);
 		g_state.flag = 1;
+	}
 	if (sig == SIGUSR1)
 		g_state.char_accum = (g_state.char_accum << 1) | 1;
 	else if (sig == SIGUSR2)
