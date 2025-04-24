@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.h                                           :+:      :+:    :+:   */
+/*   send_signal.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 17:06:08 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 14:07:04 by nando            ###   ########.fr       */
+/*   Created: 2025/04/24 14:04:10 by nando             #+#    #+#             */
+/*   Updated: 2025/04/24 14:06:05 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLIENT_H
-# define CLIENT_H
+#ifndef SEND_SIGNAL_H
+# define SEND_SIGNAL_H
 
-# include "../SendSignal/send_signal.h"
-# include "../libft/includes/ft_printf.h"
-# include "../libft/includes/libft.h"
 # include <signal.h>
-# include <stdio.h>
-# include <stdlib.h>
 # include <unistd.h>
+
+void	send_char_in_binary_signal(__pid_t server_pid, char c);
+void	send_null_signal(__pid_t server_pid);
 
 #endif

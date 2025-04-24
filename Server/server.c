@@ -6,26 +6,24 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:56:47 by nando             #+#    #+#             */
-/*   Updated: 2025/03/29 19:13:47 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/24 14:06:43 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define _POSIX_C_SOURCE 200809L
-#include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "server.h"
 
-t_state g_state = {0, 0, 0, 0};
+/*g_state is the sole global variable used to maintain the bit-reception
+  each time the signal handler is invoked */
+t_state	g_state = {0, 0, 0, 0};
 
-void write_one_character(void)
+static void	write_one_character(void)
 {
-	if(g_state.char_accum == '\0')
+	if (g_state.char_accum == '\0')
 	{
 		write(1, "\n", 1);
 		g_state.flag = 0;
-		if(g_state.client_pid != 0)
+		if (g_state.client_pid != 0)
 			kill(g_state.client_pid, SIGUSR1);
 	}
 	else
@@ -38,33 +36,28 @@ void write_one_character(void)
 	g_state.client_pid = 0;
 }
 
-void signal_handler(int sig, siginfo_t *info, void *context)
+static void	signal_handler(int sig, siginfo_t *info, void *context)
 {
 	(void)context;
-	
 	g_state.client_pid = info->si_pid;
-	if(g_state.flag == 0)
-	{
-		ft_printf("client PID : %d\n",g_state.client_pid);
+	if (g_state.flag == 0)
 		g_state.flag = 1;
-	}
-	if(sig == SIGUSR1)
+	if (sig == SIGUSR1)
 		g_state.char_accum = (g_state.char_accum << 1) | 1;
 	else if (sig == SIGUSR2)
 		g_state.char_accum = g_state.char_accum << 1;
 	g_state.bit_count++;
-	if(g_state.bit_count == 8)
+	if (g_state.bit_count == 8)
 		write_one_character();
 }
 
 int	main(void)
 {
-	__pid_t pid;
-	struct sigaction sig_act;
+	__pid_t				pid;
+	struct sigaction	sig_act;
 
 	pid = getpid();
 	ft_printf("Server PID : %d\n", pid);
-
 	sig_act.sa_sigaction = signal_handler;
 	sig_act.sa_flags = SA_SIGINFO | SA_RESTART;
 	sigemptyset(&sig_act.sa_mask);
