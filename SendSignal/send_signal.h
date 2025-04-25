@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 14:04:10 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 14:06:05 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/25 21:40:22 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <signal.h>
 # include <unistd.h>
 
-void	send_char_in_binary_signal(__pid_t server_pid, char c);
 void	send_null_signal(__pid_t server_pid);
 
 #endif
