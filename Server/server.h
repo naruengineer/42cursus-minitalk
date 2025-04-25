@@ -6,7 +6,7 @@
 /*   By: nando <nando@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:25:14 by nando             #+#    #+#             */
-/*   Updated: 2025/04/24 16:20:04 by nando            ###   ########.fr       */
+/*   Updated: 2025/04/24 21:11:52 by nando            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_state
 	volatile sig_atomic_t	bit_count;
 	volatile sig_atomic_t	char_accum;
 	volatile sig_atomic_t	client_pid;
-	int						flag;
 }							t_state;
 
 #endif
